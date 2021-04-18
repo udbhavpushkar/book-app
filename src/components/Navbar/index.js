@@ -3,8 +3,9 @@ import {AppBar, IconButton, InputBase, Toolbar, Typography} from "@material-ui/c
 import {Brightness2, Brightness7, LibraryBooks, Search} from "@material-ui/icons";
 import useStyles from "./style";
 
-const Navbar = ({setMode, mode}) => {
+const Navbar = ({setMode, mode, search, setSearch}) => {
     const classes = useStyles();
+
     return (
         <div className={classes.root}>
             <AppBar color={mode?"default":"primary"} position="sticky">
@@ -18,6 +19,8 @@ const Navbar = ({setMode, mode}) => {
                             <Search />
                         </div>
                         <InputBase
+                            value={search}
+                            onChange={e=>setSearch(e.target.value)}
                             placeholder="Search…"
                             classes={{
                                 root: classes.inputRoot,

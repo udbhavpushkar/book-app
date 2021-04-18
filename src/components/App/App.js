@@ -9,6 +9,7 @@ function App() {
     const [books, setBooks] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [darkMode, setDarMode] = useState(false)
+    const [search, setSearch] = useState("")
 
     const theme = createMuiTheme({
         palette:{
@@ -33,16 +34,26 @@ function App() {
         fetchBooks()
     },[])
 
-
   return (
       <MuiThemeProvider theme={theme}>
         <CssBaseline/>
-        <Navbar mode={darkMode} setMode={setDarMode}/>
+        <Navbar search={search} setSearch={setSearch} mode={darkMode} setMode={setDarMode}/>
           {isLoading?
               <Backdrop className={classes.backdrop} open={isLoading}>
                   <CircularProgress color="secondary" />
               </Backdrop>
-              :<Books data={books}/>}
+              :<Books data={
+                  books.filter(book => {
+                      if (search===""){
+                          return book;
+                      }else if(book.title.toLowerCase().includes(search.toLowerCase())){
+                          return book;
+                      }else if(book.author.toLowerCase().includes(search.toLowerCase())){
+                          return book
+                      }
+                      return false
+                  })
+              }/>}
       </MuiThemeProvider>
   );
 }
