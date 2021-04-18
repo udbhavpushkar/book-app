@@ -6,10 +6,11 @@ import {Apps} from "@material-ui/icons";
 import ListIcon from "@material-ui/icons/List"
 const Books = ({data}) => {
     const [isGrid, setIsGrid] = useState(true)
+
     const classes = useStyles()
     return(
         <Container>
-            <IconButton color="primary" onClick={e=>setIsGrid(!isGrid)}>
+            <IconButton color="primary" onClick={()=>setIsGrid(!isGrid)}>
                 {isGrid?<ListIcon/>:<Apps/>}
             </IconButton>
             {isGrid?(
@@ -27,9 +28,7 @@ const Books = ({data}) => {
                             ))}
                         </List>
                     </Container>
-
                 )}
-
         </Container>
     )
 }
