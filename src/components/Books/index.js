@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Grid, IconButton, Paper, List} from "@material-ui/core";
+import {Container, Grid, IconButton, List} from "@material-ui/core";
 import useStyles from "./style";
 import Book from "./Book";
 import {Apps} from "@material-ui/icons";

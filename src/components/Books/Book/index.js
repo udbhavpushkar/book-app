@@ -61,9 +61,7 @@ const Book = ({data, isGrid}) => {
                 <Divider variant="inset" component="li" />
             </>
             )
-
     }
-
 };
 
 export default Book;
